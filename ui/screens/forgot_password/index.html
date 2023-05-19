@@ -1,0 +1,101 @@
+
+<style  scoped>
+    #fp {
+       background-color: var(--default-bg-color);
+       height: 100vh;
+       width: 100%;
+    }
+    #fp-empty {
+        height: 10%;
+        width: 100vw;
+       border: 2px solid rebeccapurple;
+
+    }
+    #fp-main {
+        padding-top: 0%;
+        padding-bottom: 0%;
+        border-radius: 15px 15px 0% 0%;
+        height: 100%;
+        width: 100%;
+        gap: 0px;
+        background-color: white;
+    }
+
+
+    #fp-banner {
+        color: var(--default-bg-color);
+        font-weight: bold;
+        font-size: 25pt;
+        letter-spacing: 2px;
+        height: 20%;
+    }
+
+    #fp-banner > span {
+       text-align: left;
+    }
+    #fp-content-wrapper {
+          width: 90%;
+          height: 100%;
+          gap:2%;
+    }
+
+    #fp-content-wrapper > div {
+        width: 100%;
+    } 
+    
+    #fp-content-wrapper > :first-child {
+        margin-top: 10%;
+    }
+    #fp-form {
+        height: 40%;
+        gap: 10%;
+        overflow: hidden;
+
+    }
+    
+     #fp-button-container {
+         gap: 10%;
+         height: 20%;
+     }
+
+
+     #fp-submit-button{
+        height: 20%;
+     }
+     #fp-submit-button > button {
+
+     }
+     a {
+        color: #fe04d6;
+     }
+
+    </style>
+    
+    <section id="fp" class=" full-height flex-align-center flex-column"  @page>
+
+        <div id="fp-empty"></div>
+        <main id="fp-main" class="flex-center">
+
+            <div id="fp-content-wrapper" class="flex-column " >
+
+                <div id="fp-banner" class=" flex-column">
+                    <span class="">Forgot</span>
+                    <span class="">password?</span>
+                </div>
+                <div class="full-width flex-column">
+                    <span>Enter the email adress associated with your account.</span>
+                    <span>We will email you a link to receive your password.</span>
+                </div>
+                
+                <div id="fp-form" class="  default-input-wrapper flex-column ">
+                    <div class="default-input flex-column"><span>Email</span><input placeholder="youremail@domain.com" type="text"></div>
+                    <div id="fp-submit-button" class="default-input flex-center"><button class="default-button">RESET PASSWORD</button></div>
+                </div>
+
+
+            </div> 
+        </main>
+
+
+    </section>
+

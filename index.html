@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style scoped>
+:root {
+    --default-bg-color: #5162FF;
+    --default-main-width: 85%;
+}
+
+.flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    overflow: hidden;
+}
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-column { 
+    display: flex; 
+    flex-direction: column;
+}
+
+.invisible {
+    display: none !important;
+}
+
+.flex-row { 
+    display: flex; 
+    flex-direction: row;
+}
+
+.border-red {
+  border: 1px solid red;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.color-black {
+    color: black;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.color-white {
+    color: white;
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body, html {
+    margin: 0%;
+    padding: 0%;
+    /* overflow: hidden; */
+}
+
+.default-input-wrapper {
+
+}
+
+.default-button {
+    background-color: #fe04d6;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.248);
+    border: none;
+    font-size: 12pt;
+    height: 100%;
+    width: 40%;
+}
+
+.default-input {
+    width: 100%;
+    font-size: 12pt;
+}
+.default-input > span {
+    color: lightgray;
+    width: 100%;
+    text-align: left;
+
+}
+
+.default-input > input {
+    color: black;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #5162FF;
+
+
+}
+
+
+/*  */
+
+/*  */
+</style>
+    <script>
+
+let lastPage = null
+
+let pages = []
+let currentIndex = 0
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    document.querySelectorAll("[page]").forEach((el)=>{
+        if (el.hasAttribute('invisible')){
+            el.classList.add("invisible")
+            el.removeAttribute("invisible")
+        } else {
+            pages.push(el.getAttribute('page'))
+           currentIndex++
+
+        }
+    })
+})
+
+function goFoward(){
+
+    currentIndex+=1
+    if (currentIndex>=pages.length){
+        currentIndex = pages.length - 1
+    }
+    goTo(pages[currentIndex])
+}
+
+function goBack() {
+    if (currentIndex == pages.length){
+        currentIndex -= 2
+    } else {
+        currentIndex -=1
+    }
+    if (currentIndex<0){
+        currentIndex = 0
+        return;
+    }
+    goTo(pages[currentIndex])
+}
+
+function goTo(page) {
+    document.querySelectorAll("[page]").forEach((el)=>{
+        const pageName = el.getAttribute('page')
+        if (!el.classList.contains("invisible")){
+            lastPage = pageName
+        }
+        if (pageName == page){
+           el.classList.remove("invisible")
+           pages.push(pageName)
+           currentIndex++
+        } else {
+            el.classList.add("invisible")
+        }
+    })
+}</script>
+</head>
+
+<body>
+    
+    
+
+<style  scoped>
+    #fp {
+       background-color: var(--default-bg-color);
+       height: 100vh;
+       width: 100%;
+    }
+    #fp-empty {
+        height: 10%;
+        width: 100vw;
+       border: 2px solid rebeccapurple;
+
+    }
+    #fp-main {
+        padding-top: 0%;
+        padding-bottom: 0%;
+        border-radius: 15px 15px 0% 0%;
+        height: 100%;
+        width: 100%;
+        gap: 0px;
+        background-color: white;
+    }
+
+
+    #fp-banner {
+        color: var(--default-bg-color);
+        font-weight: bold;
+        font-size: 25pt;
+        letter-spacing: 2px;
+        height: 20%;
+    }
+
+    #fp-banner > span {
+       text-align: left;
+    }
+    #fp-content-wrapper {
+          width: 90%;
+          height: 100%;
+          gap:2%;
+    }
+
+    #fp-content-wrapper > div {
+        width: 100%;
+    } 
+    
+    #fp-content-wrapper > :first-child {
+        margin-top: 10%;
+    }
+    #fp-form {
+        height: 40%;
+        gap: 10%;
+        overflow: hidden;
+
+    }
+    
+     #fp-button-container {
+         gap: 10%;
+         height: 20%;
+     }
+
+
+     #fp-submit-button{
+        height: 20%;
+     }
+     #fp-submit-button > button {
+
+     }
+     a {
+        color: #fe04d6;
+     }
+
+    </style>
+    
+    <section id="fp" class=" full-height flex-align-center flex-column"  page="forgot_password" invisible>
+
+        <div id="fp-empty"></div>
+        <main id="fp-main" class="flex-center">
+
+            <div id="fp-content-wrapper" class="flex-column " >
+
+                <div id="fp-banner" class=" flex-column">
+                    <span class="">Forgot</span>
+                    <span class="">password?</span>
+                </div>
+                <div class="full-width flex-column">
+                    <span>Enter the email adress associated with your account.</span>
+                    <span>We will email you a link to receive your password.</span>
+                </div>
+                
+                <div id="fp-form" class="  default-input-wrapper flex-column ">
+                    <div class="default-input flex-column"><span>Email</span><input placeholder="youremail@domain.com" type="text"></div>
+                    <div id="fp-submit-button" class="default-input flex-center"><button class="default-button">RESET PASSWORD</button></div>
+                </div>
+
+
+            </div> 
+        </main>
+
+
+    </section>
+
+
+
+<style scoped>
+
+#home {
+    background: var(--default-bg-color);
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  #title {
+      color: white;
+      font-weight: bold;
+      font-size: 38pt;
+      letter-spacing: 2px;
+  }
+
+
+
+  .main-button {
+      background-color: #fe04d6;
+      color: white;
+      font-weight: bold;
+      padding: 20px;
+      border-radius: 50px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.248);
+      border: none;
+      font-size: 12pt;
+      margin-left: 50%;
+  }
+
+  #splash-text {
+      text-align: right;
+      color: white;
+      font-size: 12pt;
+      text-indent: 80px;
+  }
+
+
+  #title-wrapper {
+       width: 100%;
+       height: 100%;     
+  }
+
+  #bottom-view {
+      height: 40%;
+  }
+  
+  #content-wrapper {
+      height: 40%;    
+      text-align: right;
+      justify-content: right;
+  }
+
+
+  main {
+      width: var(--default-main-width);
+  }
+</style>
+
+<section id="home" class="flex-center full-height" page="home" >
+
+    <main class="flex-center  full-height flex-column">
+        <div id="title-wrapper" class="flex-center ">
+            <span id="title">macromicro.</span>
+        </div>
+    
+        <div id="bottom-view" class="full-width">
+            <div id="content-wrapper" class=" full-width">
+                <span id="splash-text">We're here to help you get a better understanding of what goes into your body everyday.</span>
+            </div>
+        
+            <div id="button-wrapper" class=" full-width">
+                <button class="main-button" onclick="goTo('login')">GET STARTED</button>
+            </div>
+        </div>
+    </main>
+    
+</section>
+
+
+<style  >
+    #login {
+       background-color: var(--default-bg-color);
+       height: 100vh;
+       width: 100%;
+    }
+    #empty {
+        height: 10%;
+        width: 100vw;
+       border: 2px solid rebeccapurple;
+
+    }
+    #login-main {
+        padding-top: 0%;
+        padding-bottom: 0%;
+        border-radius: 15px 15px 0% 0%;
+        height: 100%;
+        width: 100%;
+        gap: 0px;
+        background-color: white;
+    }
+
+
+    #banner {
+        color: var(--default-bg-color);
+        font-weight: bold;
+        font-size: 25pt;
+        letter-spacing: 2px;
+        height: 20%;
+    }
+
+    #banner > span {
+       text-align: left;
+    }
+    #login-content-wrapper {
+          width: 90%;
+          height: 100%;
+    }
+
+    #login-content-wrapper > div {
+        width: 100%;
+    } 
+    
+    #login-content-wrapper > :first-child {
+        margin-top: 10%;
+    }
+    #form {
+        height: 30%;
+        gap: 20%;
+
+    }
+    .continue-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+        border-radius: 50px;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+     #button-container {
+         gap: 10%;
+         height: 20%;
+     }
+
+     #or {
+        height: 10%;
+        font-size: 10pt;
+        font-weight: bold;
+        padding-top: 20px;
+     }
+
+     #submit-button{
+        height: 50%;
+     }
+
+     a {
+        color: #fe04d6;
+     }
+
+    </style>
+    
+    <section id="login" class=" full-height flex-align-center flex-column"  page="login" invisible>
+
+        <div id="empty"></div>
+        <main id="login-main" class="flex-center">
+
+            <div id="login-content-wrapper" class="flex-center flex-column" >
+
+                <div id="banner" class=" flex-column">
+                    <span class="">Welcome</span>
+                    <span class="">back!</span>
+                </div>
+                
+                <div id="form" class="  default-input-wrapper flex-column">
+                    <div class="default-input flex-column"><span>Email</span><input placeholder="youremail@domain.com" type="text"></div>
+                    <div class="default-input flex-column"><span>Password</span><input placeholder="Your password" type="password"></div>
+                    <div id="submit-button" class="default-input flex-center"><button class="default-button">LOG IN</button></div>
+                </div>
+
+                 <div id="or" class="flex-center">----------------------     OR     ----------------------</div> 
+                
+                 <div id="button-container" class=" flex-center flex-column">
+                    <button class="continue-button color-black bg-white">CONTINUE WITH GOOGLE</button>
+                    <button class="continue-button color-white bg-black">CONTINUE WITH APPLE</button>
+                </div>
+                
+                <div class="flex-center"><a onclick="goTo('forgot_password')">Forgot password?</a></div>
+                
+                <div class="flex-center"><span>Dont't have an account? </span><a onclick="goTo('signup')">Sign up</a></div>
+
+            </div> 
+        </main>
+
+
+    </section>
+
+
+
+<style  scoped>
+    #signup {
+       background-color: var(--default-bg-color);
+       height: 100vh;
+       width: 100%;
+    }
+    #signup-empty {
+        height: 10%;
+        width: 100vw;
+       border: 2px solid rebeccapurple;
+
+    }
+    #signup-main {
+        padding-top: 0%;
+        padding-bottom: 0%;
+        border-radius: 15px 15px 0% 0%;
+        height: 100%;
+        width: 100%;
+        gap: 0px;
+        background-color: white;
+    }
+
+
+    #signup-banner {
+        color: var(--default-bg-color);
+        font-weight: bold;
+        font-size: 25pt;
+        letter-spacing: 2px;
+        height: 20%;
+    }
+
+    #signup-banner > span {
+       text-align: left;
+    }
+    #signup-content-wrapper {
+          width: 90%;
+          height: 100%;
+          gap:2%;
+    }
+
+    #signup-content-wrapper > div {
+        width: 100%;
+    } 
+    
+    #signup-content-wrapper > :first-child {
+        margin-top: 10%;
+    }
+    #signup-form {
+        height: 40%;
+        gap: 10%;
+        overflow: hidden;
+
+    }
+    .external-signup-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+        border-radius: 50px;
+        letter-spacing: 2px;
+        font-weight: bold;
+
+    }
+     #signup-button-container {
+         gap: 10%;
+         height: 20%;
+     }
+
+
+     #signup-submit-button{
+        height: 20%;
+     }
+     #signup-submit-button > button {
+
+     }
+     a {
+        color: #fe04d6;
+     }
+
+    </style>
+    
+    <section id="signup" class=" full-height flex-align-center flex-column"  page="signup" invisible>
+
+        <div id="signup-empty"></div>
+        <main id="signup-main" class="flex-center">
+
+            <div id="signup-content-wrapper" class="flex-column " >
+
+                <div id="signup-banner" class=" flex-column">
+                    <span class="">Create your</span>
+                    <span class="">account.</span>
+                </div>
+                
+                <div id="signup-form" class="  default-input-wrapper flex-column ">
+                    <div class="default-input flex-column"><span>what is your name?</span><input placeholder="your name" type="text"></div>
+                    <div class="default-input flex-column"><span>Email</span><input placeholder="youremail@domain.com" type="text"></div>
+                    <div class="default-input flex-column"><span>Password</span><input placeholder="Your password" type="password"></div>
+                    <div id="signup-submit-button" class="default-input flex-center"><button class="default-button">SIGNUP</button></div>
+                </div>
+
+                
+                 <div id="signup-button-container" class=" flex-center flex-column">
+                    <button class="external-signup-button color-black bg-white">SIGNUP WITH GOOGLE</button>
+                    <button class="external-signup-button color-white bg-black">SIGNUP WITH APPLE</button>
+                </div>
+                
+                
+                <div class="flex-center"><span>Already have an account? </span><a onclick="goTo('login')">Log in</a></div>
+
+            </div> 
+        </main>
+
+
+    </section>
+
+
+
+
+</body>
+</html>

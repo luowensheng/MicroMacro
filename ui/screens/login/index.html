@@ -1,0 +1,121 @@
+
+<style  >
+    #login {
+       background-color: var(--default-bg-color);
+       height: 100vh;
+       width: 100%;
+    }
+    #empty {
+        height: 10%;
+        width: 100vw;
+       border: 2px solid rebeccapurple;
+
+    }
+    #login-main {
+        padding-top: 0%;
+        padding-bottom: 0%;
+        border-radius: 15px 15px 0% 0%;
+        height: 100%;
+        width: 100%;
+        gap: 0px;
+        background-color: white;
+    }
+
+
+    #banner {
+        color: var(--default-bg-color);
+        font-weight: bold;
+        font-size: 25pt;
+        letter-spacing: 2px;
+        height: 20%;
+    }
+
+    #banner > span {
+       text-align: left;
+    }
+    #login-content-wrapper {
+          width: 90%;
+          height: 100%;
+    }
+
+    #login-content-wrapper > div {
+        width: 100%;
+    } 
+    
+    #login-content-wrapper > :first-child {
+        margin-top: 10%;
+    }
+    #form {
+        height: 30%;
+        gap: 20%;
+
+    }
+    .continue-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+        border-radius: 50px;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+     #button-container {
+         gap: 10%;
+         height: 20%;
+     }
+
+     #or {
+        height: 10%;
+        font-size: 10pt;
+        font-weight: bold;
+        padding-top: 20px;
+     }
+
+     #submit-button{
+        height: 50%;
+     }
+
+     a {
+        color: #fe04d6;
+     }
+
+    </style>
+    
+    <section id="login" class=" full-height flex-align-center flex-column"  @page>
+
+        <div id="empty"></div>
+        <main id="login-main" class="flex-center">
+
+            <div id="login-content-wrapper" class="flex-center flex-column" >
+
+                <div id="banner" class=" flex-column">
+                    <span class="">Welcome</span>
+                    <span class="">back!</span>
+                </div>
+                
+                <div id="form" class="  default-input-wrapper flex-column">
+                    <div class="default-input flex-column"><span>Email</span><input placeholder="youremail@domain.com" type="text"></div>
+                    <div class="default-input flex-column"><span>Password</span><input placeholder="Your password" type="password"></div>
+                    <div id="submit-button" class="default-input flex-center"><button class="default-button">LOG IN</button></div>
+                </div>
+
+                 <div id="or" class="flex-center">----------------------     OR     ----------------------</div> 
+                
+                 <div id="button-container" class=" flex-center flex-column">
+                    <button class="continue-button color-black bg-white">CONTINUE WITH GOOGLE</button>
+                    <button class="continue-button color-white bg-black">CONTINUE WITH APPLE</button>
+                </div>
+                
+                <div class="flex-center"><a onclick="goTo('forgot_password')">Forgot password?</a></div>
+                
+                <div class="flex-center"><span>Dont't have an account? </span><a onclick="goTo('signup')">Sign up</a></div>
+
+            </div> 
+        </main>
+
+
+    </section>
+

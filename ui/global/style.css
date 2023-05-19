@@ -1,0 +1,114 @@
+:root {
+    --default-bg-color: #5162FF;
+    --default-main-width: 85%;
+}
+
+.flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    overflow: hidden;
+}
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-column { 
+    display: flex; 
+    flex-direction: column;
+}
+
+.invisible {
+    display: none !important;
+}
+
+.flex-row { 
+    display: flex; 
+    flex-direction: row;
+}
+
+.border-red {
+  border: 1px solid red;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.color-black {
+    color: black;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.color-white {
+    color: white;
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body, html {
+    margin: 0%;
+    padding: 0%;
+    /* overflow: hidden; */
+}
+
+.default-input-wrapper {
+
+}
+
+.default-button {
+    background-color: #fe04d6;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.248);
+    border: none;
+    font-size: 12pt;
+    height: 100%;
+    width: 40%;
+}
+
+.default-input {
+    width: 100%;
+    font-size: 12pt;
+}
+.default-input > span {
+    color: lightgray;
+    width: 100%;
+    text-align: left;
+
+}
+
+.default-input > input {
+    color: black;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #5162FF;
+
+
+}
+
+
+/*  */
+
+/*  */
